@@ -1,10 +1,10 @@
-#Mock LED Device
+# LED Device for BeagleBone Bonescript
 
-This is a mock LED device for use in the Zetta platform.
+This is a LED device for use in the Zetta platform on Beaglebone
 
 ##Installation
 
-`npm install zetta-mock-led`
+`npm install zetta-led-bonescript-driver`
 
 ##Usage
 
