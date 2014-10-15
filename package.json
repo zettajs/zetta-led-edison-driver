@@ -1,0 +1,29 @@
+{
+  "name": "zetta-led-bonescript-driver",
+  "version": "0.1.0",
+  "description": "LED Device for use in Zetta on the BeagleBone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/landlessness/zetta-led-bonescript-driver.git"
+  },
+  "keywords": [
+    "zetta",
+    "beaglebone",
+    "bonescript",
+    "led"
+  ],
+  "author": "Brian Mulloy <@landlessness>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/landlessness/zetta-led-bonescript-driver/issues"
+  },
+  "homepage": "https://github.com/landlessness/zetta-led-bonescript-driver",
+  "dependencies": {
+    "zetta-device": "~0.3.0",
+    "zetta": "~0.13.0"
+  }
+}
