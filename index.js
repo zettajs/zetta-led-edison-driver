@@ -12,7 +12,6 @@ util.inherits(LEDScout, Scout);
 LEDScout.prototype.init = function(next) {
   var self = this;
   for(var i = 0; i < pins.length; i++) {
-    console.log(pins[i]);
     self.discover(LED, pins[i]);
   }
   next();
