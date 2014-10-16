@@ -4,7 +4,7 @@ var bone = require('bonescript');
 
 var LED = module.exports = function(pin) {
   Device.call(this);
-  this.pin = pin || "USR0";
+  this.pin = pin;
 };
 util.inherits(LED, Device);
 
@@ -12,6 +12,7 @@ LED.prototype.init = function(config) {
   config
     .type('led')
     .state('off')
+    .name('led ' + this.pin)
     .when('off', { allow: ['turn-on'] })
     .when('on', { allow: ['turn-off'] })
     .map('turn-on', this.turnOn)

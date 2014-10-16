@@ -12,9 +12,11 @@ To use simply call the `use()` function in your code to use this device.
 
 ```javascript
 var zetta = require('zetta');
-var LED = require('zetta-mock-led');
+var LEDs = require('zetta-led-bonescript-driver');
 
 zetta()
-  .use(LED)
-  .listen(1337);
+  .use(LEDs, 'USR0', 'USR1', 'USR2', 'USR3')
+  .listen(1337, function(){
+    console.log('Zetta is running at http://beaglebone.local:1337');
+  });
 ```
