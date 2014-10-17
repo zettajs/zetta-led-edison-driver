@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/landlessness/zetta-led-bonescript-driver",
   "dependencies": {
-    "zetta-device": "~0.3.0",
-    "zetta": "~0.13.0",
+    "bonescript": "^0.2.4",
+    "zetta-device": "~0.7.0",
     "zetta-scout": "~0.3.0"
   }
 }

@@ -6,3 +6,5 @@ examples/.registry/medea.lock
 examples/.peers/*
 examples/.peers/medea.lock
 examples/node_modules/
+.registry
+.peers
