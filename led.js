@@ -86,7 +86,7 @@ LED.prototype._emit = function(delay) {
   
   bone.digitalWrite(this.pin, 1, function() {
     setTimeout(function() {
-      bone.digitalWrite(self.pin, 1);
+      bone.digitalWrite(self.pin, 0);
     }, delay);
   });
 
