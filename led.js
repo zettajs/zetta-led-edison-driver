@@ -11,15 +11,13 @@ util.inherits(LED, Device);
 LED.prototype.init = function(config) {
   config
     .type('led')
-    .state('off')
     .name('led ' + this.pin)
+    .state('off')
     .when('off', { allow: ['turn-on', 'turn-on-pulse', 'turn-on-alternating', 'flash']})
     .when('on', { allow: ['turn-off', 'turn-on-pulse', 'turn-on-alternating', 'flash'] })
     .when('pulse', { allow: ['turn-off', 'turn-on', 'turn-on-alternating', 'flash'] })
     .when('alternating', { allow: ['turn-off', 'turn-on', 'turn-on-pulse', 'flash'] })
     .when('flash', { allow: [] })
-    .when('off', { allow: ['turn-on'] })
-    .when('on', { allow: ['turn-off'] })
     .map('flash', this.flash)
     .map('turn-on', this.turnOn)
     .map('turn-on-pulse', this.turnOnPulse)
