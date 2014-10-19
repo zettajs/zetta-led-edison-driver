@@ -33,21 +33,21 @@ LED.prototype.turnOn = function(cb) {
   var state = 'on';
   var onDuration = 500;
   var offDuration = 0;
-  this._tone(onDuration, offDuration, state, cb);
+  this._pattern(onDuration, offDuration, state, cb);
 };
 
 LED.prototype.turnOnPulse = function(cb) {
   var state = 'pulse';
   var onDuration = 150;
   var offDuration = 100;
-  this._tone(onDuration, offDuration, state, cb);
+  this._pattern(onDuration, offDuration, state, cb);
 };
 
 LED.prototype.turnOnAlternating = function(cb) {
   var state = 'alternating';
   var onDuration = 100;
   var offDuration = 400;
-  this._tone(onDuration, offDuration, state, cb);
+  this._pattern(onDuration, offDuration, state, cb);
 };
 
 LED.prototype.flash = function(cb) {
@@ -72,7 +72,7 @@ LED.prototype.turnOff = function(cb) {
 };
 
 
-LED.prototype._tone = function(onDuration, offDuration, state, cb) {
+LED.prototype._pattern = function(onDuration, offDuration, state, cb) {
   var self = this;
   this.turnOff(function(){
     self._timer = setInterval(self._emit.bind(self, onDuration), onDuration + offDuration);
