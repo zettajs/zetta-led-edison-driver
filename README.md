@@ -1,10 +1,10 @@
-# LED Device for BeagleBone Bonescript
+# LED Device for Intel Edison
 
-This is a LED device for use in the Zetta platform on Beaglebone
+This is a LED device for use in the Zetta platform on Edison
 
 ##Install
 
-`npm install zetta-led-bonescript-driver`
+`npm install zetta-led-edison-driver`
 
 ##Usage
 
@@ -12,18 +12,18 @@ To use simply call the `use()` function in your code to use this device.
 
 ```javascript
 var zetta = require('zetta');
-var LEDs = require('zetta-led-bonescript-driver');
+var LEDs = require('zetta-led-edison-driver');
 
 zetta()
   .use(LEDs, 'USR0', 'USR1', 'USR2', 'USR3')
   .listen(1337, function(){
-    console.log('Zetta is running at http://beaglebone.local:1337');
+    console.log('Zetta is running at http://edison.local:1337');
   });
 ```
 
 ### Hardware
 
-* [Beagle Bone](http://beagleboard.org/black)
+* [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
 ###Transitions
 

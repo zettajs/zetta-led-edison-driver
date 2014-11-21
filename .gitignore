@@ -1,3 +1,4 @@
+.edison-cli-time
 node_modules/
 npm-debug.log
 .DS_Store

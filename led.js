@@ -1,10 +1,11 @@
 var Device = require('zetta-device');
 var util = require('util');
-var bone = require('bonescript');
+var mraa = require('mraa-js');
 
 var LED = module.exports = function(pin) {
   Device.call(this);
   this.pin = pin;
+  this._pin = new mraa.Gpio(this.pin);
 };
 util.inherits(LED, Device);
 
@@ -25,8 +26,8 @@ LED.prototype.init = function(config) {
     .map('turn-off', this.turnOff);
     
   //Everything is off to start
-  bone.pinMode(this.pin, bone.OUTPUT);
-  bone.digitalWrite(this.pin, 0);
+  this._pin.dir(mraa.DIR_OUT);
+  this._pin.write(0);
 };
 
 LED.prototype.turnOn = function(cb) {
@@ -54,7 +55,7 @@ LED.prototype.flash = function(cb) {
   this.state = 'flash';
   var self = this;
   this.turnOff(function() {
-    self._emit(100, 750); 
+    self._emitLight(100, 750); 
   });
   cb();
 };
@@ -63,7 +64,7 @@ LED.prototype.turnOff = function(cb) {
   if (this._timer != undefined) {
     clearInterval(this._timer);
   }
-  bone.digitalWrite(this.pin, 0);
+  this._pin.write(0);
   this.state = 'off';
   cb();
 };
@@ -72,21 +73,22 @@ LED.prototype._pattern = function(onDuration, offDuration, state, cb) {
   var self = this;
   this.turnOff(function(){
     if (onDuration === Infinity || offDuration === 0) {
-      bone.digitalWrite(self.pin, 1);
+      self._pin.write(1);
     } else {
-      self._timer = setInterval(self._emit.bind(self, onDuration), onDuration + offDuration);
+      self._timer = setInterval(self._emitLight.bind(self, onDuration), onDuration + offDuration);
     }
     self.state = state;
     cb();
   });
 };
 
-LED.prototype._emit = function(delay) {
+LED.prototype._emitLight = function(delay) {
   var self = this;
   
-  bone.digitalWrite(this.pin, 1, function() {
-    setTimeout(function() {
-      bone.digitalWrite(self.pin, 0);
-    }, delay);
-  });
+  this._pin.write(1);
+  var self = this;
+  setTimeout(function() {
+    self._pin.write(0);
+  }, delay);
+  
 };
