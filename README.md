@@ -15,7 +15,7 @@ var zetta = require('zetta');
 var LEDs = require('zetta-led-edison-driver');
 
 zetta()
-  .use(LEDs, 'USR0', 'USR1', 'USR2', 'USR3')
+  .use(LEDs, 13)
   .listen(1337, function(){
     console.log('Zetta is running at http://edison.local:1337');
   });
