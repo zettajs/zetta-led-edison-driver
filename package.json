@@ -1,6 +1,6 @@
 {
   "name": "zetta-led-edison-driver",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "LED Device for use in Zetta on the Intel Edison",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/landlessness/zetta-led-edison-driver",
   "dependencies": {
-    "zetta-device": "~0.7.0",
-    "zetta-scout": "~0.3.0",
+    "zetta-device": "^0.8.0",
+    "zetta-scout": "^0.5.0",
     "mraa-js": "~0.1.0"
   }
 }
